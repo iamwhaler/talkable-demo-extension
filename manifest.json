@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Talkable Demo Showcase",
+  "description": "This extension adds Talkable integration to the page",
+  "version": "1.0",
+  "web_accessible_resources": ["integration.js"],
+  "browser_action": {
+    "default_icon": "logo_tkbl.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab", "https://*/*", "http://*/*"
+  ]
+}
