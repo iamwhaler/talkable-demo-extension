@@ -1212,23 +1212,3 @@ window.talkablePlacementsConfig = {
   "site_url": "http://maxim-talkable.myshopify.com",
   "timestamp": 1562183328
 };
-
-var _TALKABLE_DEMO_CONFIG = {
-  "site_slug": "maxim",            // real site_slug, i.e. for toms-v2 it should be toms
-  "version": "4.2.3",              // integration version
-  "without_integration_library": false // optional, false by default
-};
-
-var div = document.createElement('div');
-div.id = "talkable-offer";
-
-document.addEventListener('DOMContentLoaded', function() {
-  var checkPageButton = document.getElementById('add-integration');
-  checkPageButton.addEventListener('click', function () {
-    document.body.appendChild(div);
-    console.log(document.body);
-    window._talkableq = window._talkableq || [];
-    _talkableq.unshift(['init', { site_id: _TALKABLE_DEMO_CONFIG.site_slug }]);
-    window._talkableq.push(['register_affiliate', {}]);
-  })
-});
