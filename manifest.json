@@ -16,6 +16,7 @@
     "default_title": "Talkable Integration"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ]
 }

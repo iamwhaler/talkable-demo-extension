@@ -1,5 +1,6 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+    color: #1C2940;
 }
 
 .wrapper {
@@ -12,12 +13,11 @@ h1 {
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
-    line-height: 26.4px;
 }
 
 h3 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 20px;
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
@@ -49,4 +49,62 @@ pre {
     font-variant: normal;
     font-weight: 400;
     line-height: 18.5714px;
+}
+
+.flex-element {
+    display: flex;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    padding: 14px;
+}
+
+.integrate {
+    padding: 4px;
+    margin: 0 10px;
+    background-color:#FC501E;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #f76a40;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size: 12px;
+    font-weight: bold;
+
+    width: 84px;
+}
+
+.integrate:hover {
+    background-color: #f76a40;
+}
+
+.text-center {
+    text-align: center;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    height: 28px;
+    font-size: 16px;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 12px;
+    box-sizing: border-box;
+}
+
+.regular {
+    font-size: 16px;
 }
