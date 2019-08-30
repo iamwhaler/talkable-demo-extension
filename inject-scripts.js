@@ -6,14 +6,19 @@ var _TALKABLE_DEMO_CONFIG = {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  var campaign_tag;
+
   var check_buttons = document.querySelectorAll('.integrate');
+
   var site_id = document.getElementById('site-id');
+  var campaign_tag_element = document.getElementById('campaign-tag');
 
 
   if (site_id) site_id.addEventListener('input', function(e) { _TALKABLE_DEMO_CONFIG.site_slug = e.target.value });
+  //if (campaign_tag_element) campaign_tag_element.document.getElementById('campaign-tag').addEventListener('input', function(e) { campaign_tag = e.target.value });
 
 
-  window.addEventListener('click', function(event) {
+  document.body.addEventListener('click', function(event) {
     console.log(event.target);
   });
 
