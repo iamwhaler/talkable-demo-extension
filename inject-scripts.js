@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   check_buttons.forEach(function (item) {
     item.addEventListener('click', function (event) {
+      campaign_tag = event.target.id;
 
       chrome.tabs.executeScript({
         file: 'library.js'
@@ -58,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
             ${event.target.id == "post-purchase" ? 
               `window._talkableq.push(['register_purchase', {
                   purchase: {
-                    order_number: '${new Date()}',
-                    subtotal: '${10}'
+                    order_number: 'tkbl_generated_${new Date()}',
+                    subtotal: '${42}'
                   },
                   customer: {
                     email: 'customer@sample.com' // Customer email address who issued a purchase. Example: 'customer@example.com'
                   }
               }]);`
-              : `window._talkableq.push(['register_affiliate', { campaign_tags: ['${event.target.id}']}]);`}\`
+              : `window._talkableq.push(['register_affiliate', { campaign_tags: ['${campaign_tag}']}]);`}\`
           
           
           document.body.appendChild(div);
