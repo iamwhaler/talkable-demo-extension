@@ -6,13 +6,30 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="wrapper flex-container-column">
-    <h3 class="text-center">Talkable Integration Extension</h3>
+<div class="wrapper text-center flex-container-column">
+    <h3>Talkable Integration Extension</h3>
+
+    <div><a class="link" target="_blank" href="https://admin.talkable.com/sites/extension-demo/campaigns">Edit campaigns</a></div>
+
+    <div class="color-picker">
+        <input type="color" id="primary-color" name="primary-color"
+               value="#e66465">
+        <label for="primary-color">Primary color</label>
+        <input type="color" id="secondary-color" name="secondary-color"
+               value="#e66465">
+        <label for="secondary-color">Secondary color</label>
+    </div>
+
+    <div class="image-picker">
+        <label for="image">Image link: </label>
+        <input type="text" id="image" />
+    </div>
 
     <div class="buttons flex-container-row">
         <button class="integrate" id="popup-trigger">Floating Widget</button>
         <button class="integrate" id="post-purchase">Invite Popup</button>
         <button class="integrate" id="invite">Standalone</button>
+        <button class="integrate" id="dashboard">Dashboard</button>
     </div>
 </div>
 </body>

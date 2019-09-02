@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
                   }
                 }]);
                 break;
+                
+              case "dashboard":  
               case "invite": 
                 alert("please select container");
                 
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     div.id = "talkable-offer";
                     div.style = "margin: 2.5% 0"
                     e.target.appendChild(div);
-                    window._talkableq.push(["register_affiliate", { campaign_tags: ["invite"]}]);
+                    window._talkableq.push(["register_affiliate", { campaign_tags: ["${event.target.id}"]}]);
                     
                     removeBorder(e);
                     document.body.removeEventListener("mouseover", addBorder, false);
