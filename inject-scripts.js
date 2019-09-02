@@ -7,15 +7,6 @@ var _TALKABLE_DEMO_CONFIG = {
 document.addEventListener('DOMContentLoaded', function () {
 
   var check_buttons = document.querySelectorAll('.integrate');
-  var site_id = document.getElementById('site-id');
-
-
-  if (site_id) site_id.addEventListener('input', function(e) { _TALKABLE_DEMO_CONFIG.site_slug = e.target.value });
-
-
-  window.addEventListener('click', function(event) {
-    console.log(event.target);
-  });
 
   check_buttons.forEach(function (item) {
     item.addEventListener('click', function (event) {
@@ -50,15 +41,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
               case "invite": 
                 alert("please select container");
-                document.body.addEventListener("click", function(e) {
-                  if(e.target) {
+                
+                function addBorder(e) {
+                  e.target.style = "border: 3px solid #f76a40";
+                }
+                
+                function removeBorder(e) {
+                  e.target.style = "border: 0px";
+                }
+                
+                document.body.addEventListener("mouseover", addBorder, false);
+                document.body.addEventListener("mouseout", removeBorder, false);
+                
+                document.body.addEventListener("click", function insertStandalone(e) {
+                  if (e.target) {
                     var div = document.createElement('div');
                     div.id = "talkable-offer";
                     div.style = "margin: 2.5% 0"
                     e.target.appendChild(div);
                     window._talkableq.push(["register_affiliate", { campaign_tags: ["invite"]}]);
-                  }
-                });
+                    
+                    removeBorder(e);
+                    document.body.removeEventListener("mouseover", addBorder, false);
+                    document.body.removeEventListener("mouseout", removeBorder, false);
+                    document.body.removeEventListener("click", insertStandalone, false);
+                  }   
+                }, false);
                 
                 break;
               default: 
