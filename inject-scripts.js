@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   check_buttons.forEach(function (item) {
     item.addEventListener('click', function (event) {
       var image_url = document.getElementById('image').value;
+
+      if (image_url == "") image_url = "https://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/329013/original/tkbl_default_advocate-signup-share-background.jpg";
       var primary_color = document.getElementById('primary-color').value;
 
       chrome.tabs.executeScript({ file: 'library.js' });
