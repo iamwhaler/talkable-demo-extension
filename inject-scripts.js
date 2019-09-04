@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   check_buttons.forEach(function (item) {
     item.addEventListener('click', function (event) {
+      var image_url = document.getElementById('image').value;
+      var primary_color = document.getElementById('primary-color').value;
 
       chrome.tabs.executeScript({ file: 'library.js' });
       chrome.tabs.executeScript({ code: `
@@ -35,7 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     subtotal: "${10}"
                   },
                   customer: {
-                    email: "customer@sample.com" // Customer email address who issued a purchase. Example: "customer@example.com"
+                    email: "customer@sample.com", // Customer email address who issued a purchase. Example: "customer@example.com"
+                    custom_properties: {
+                       primary_color: '${primary_color}',
+                       image_url: '${image_url}',
+                    }
                   }
                 }]);
                 break;
@@ -61,7 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     div.id = "talkable-offer";
                     div.style = "margin: 2.5% 0"
                     e.target.appendChild(div);
-                    window._talkableq.push(["register_affiliate", { campaign_tags: ["${event.target.id}"]}]);
+                    window._talkableq.push(["register_affiliate", { 
+                      campaign_tags: ["${event.target.id}"],
+                      custom_properties: {
+                        primary_color: '${primary_color}',
+                        image_url: '${image_url}',
+                      }
+                    }]);
                     
                     removeBorder(e);
                     document.body.removeEventListener("mouseover", addBorder, false);
@@ -72,25 +84,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 break;
               default: 
-                window._talkableq.push(["register_affiliate", { campaign_tags: ["${event.target.id}"]}]);
+                window._talkableq.push(["register_affiliate", { 
+                  campaign_tags: ["${event.target.id}"], 
+                  custom_properties: {
+                    primary_color: '${primary_color}',
+                    image_url: '${image_url}',
+                  }
+                }]);
             }
           \`;
                   
           document.body.appendChild(api_calls);
         `
       });
-
-      // chrome.tabs.executeScript({
-      //   file: 'integration.js'
-      // });
-
-
-
-      // chrome.tabs.query({currentWindow: true, active: true}, function (tab) {
-      //     var new_url = tab[0].url + '?campaign_tags=' + event.target.id;
-      //     chrome.tabs.update({url: new_url});
-      // });
-
     });
   })
 });
